@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Belleza&display=swap");
+
+$fontSizes: (
+    h1: 30px,
+    h2: 20px,
+    label: 18px,
+    caption: 16px,
+    paragraph: 14px,
+    text: 12px,
+);
+
+$topographyColors: (
+    normal: #000,
+    caption: #24252e,
+    paragraph: #2f313a,
+    text: #40424f,
+);
+
+$colorPallete: (
+    white_: #fff,
+    black_: #000,
+    blue_: #628ae1,
+    green_: #009b4c,
+    red_: #e61d4c,
+    yellow_: #cc9933,
+    lightblue_: #3b99ff,
+    gray_: #c4c4c4,
+    orange_: #ff7723,
+);
+
+$fontFamily: "Belleza", sans-serif;
+
+div.base {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    
+    .background {
+        background-image: url('/images/sso.png');
+        background-size: cover;
+        width: 50%;
+
+        @media only screen and (max-width: 767px) {
+           display: none;
+        }
+    }
+}
+
+main {
+    display: flex;
+    flex-grow: 1;
+    align-self: center;
+    justify-content: center;
+    .login {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        h3 {
+            margin: 32px 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            .form-group {
+                margin-bottom: 24px;
+                display: flex;
+                flex-direction: column;
+                
+            }
+            input {
+                padding: 8px 12px;
+                font-size: 16px;
+                border: 3px solid #979595;
+                text-align: center;
+                border-radius: 8px;
+            }
+            input[type=submit] {
+                background-color: black;
+                color: white;
+            }
+        }       
+    }
+}

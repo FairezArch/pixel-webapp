@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css2?family=Belleza&display=swap);
+div.base {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+}
+div.base .background {
+  background-image: url("/images/sso.png");
+  background-size: cover;
+  width: 50%;
+}
+@media only screen and (max-width: 767px) {
+  div.base .background {
+    display: none;
+  }
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+  align-self: center;
+  justify-content: center;
+}
+main .login {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+main .login h3 {
+  margin: 32px 0;
+}
+main .login form {
+  display: flex;
+  flex-direction: column;
+}
+main .login form .form-group {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+main .login form input {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 3px solid #979595;
+  text-align: center;
+  border-radius: 8px;
+}
+main .login form input[type=submit] {
+  background-color: black;
+  color: white;
+}

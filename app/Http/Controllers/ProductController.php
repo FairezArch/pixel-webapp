@@ -67,7 +67,7 @@ class ProductController extends Controller
             } else {
                 $products = CategoryProduct::with(['products' => function ($query) {
                     $query->where('status', 1);
-                    $query->withSum('sales', 'quantity');
+                    $query->withaSum('sales', 'quantity');
                     $query->orderByDESC('sales_sum_quantity');
                 }])->where('status', 1)->get();
                 $products = $products->map(function ($list) {

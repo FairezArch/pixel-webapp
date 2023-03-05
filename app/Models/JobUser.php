@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Job extends Model
+class JobUser extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -14,7 +14,7 @@ class Job extends Model
 
     public function jobs()
     {
-        return $this->hasMany('App\Models\job');
+        return $this->hasMany(JobUser::class);
     }
 
 

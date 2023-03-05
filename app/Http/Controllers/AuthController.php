@@ -31,26 +31,26 @@ class AuthController extends Controller
      */
     public function login(AuthRequest $request)
     {
-        if (!$this->IsAPI()) {
-            $user = User::firstWhere('email', $request->email);
-            $role = ModelHasRole::firstWhere('model_id', $user->id);
-            if ($role->role_id == 3 || $role->role_id == 4) {
-                return redirect()->route('auth.login');
-            }
-        }
 
         if (Auth::attempt($request->only('email', 'password'))) {
+            if (!$this->IsAPI()) {
+                $user = User::firstWhere('email', $request->email);
+                $role = ModelHasRole::firstWhere('model_id', $user->id);
+                if ($role->role_id == 3 || $role->role_id == 4) {
+                    return redirect()->route('auth.login');
+                }
+            }
             if ($this->isAPI()) {
                 $user = $request->user();
 
                 $storeUser = Store::find($user->store_id);
-                if(empty($storeUser)){
+                if (empty($storeUser)) {
                     return $this->fail('Please add store in this user.', [], 400);
                 }
 
-                $searchData = User::where('device_id',$request->device_id)->first();
+                $searchData = User::where('device_id', $request->device_id)->first();
 
-                if($searchData && $searchData->id !== $user->id){
+                if ($searchData && $searchData->id !== $user->id) {
                     return $this->fail('Device already used.', [], 400);
                 }
 

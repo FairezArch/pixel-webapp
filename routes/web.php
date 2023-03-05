@@ -30,15 +30,15 @@ use App\Http\Controllers\CategoryProductController;
 |
 */
 
+Route::get('/forgot', [AuthController::class, 'forgot'])->name('auth.forgot');
+Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+Route::get('/reset-password-info', [ForgotPasswordController::class, 'resetPasswordInfo'])->name('reset.password.info');
 
 Route::prefix('/auth')->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('auth.login');
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login.submit');
 
-    Route::get('/forgot', [AuthController::class, 'forgot'])->name('auth.forgot');
-    Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
-    Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
-    Route::get('/reset-password-info', [ForgotPasswordController::class, 'resetPasswordInfo'])->name('reset.password.info');
 
     Route::middleware(['auth:web'])->group(function () {
         Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');

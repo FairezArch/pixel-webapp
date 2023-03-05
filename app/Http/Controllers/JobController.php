@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Age;
-use App\Models\Job;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
+use App\Models\JobUser;
 
 class JobController extends Controller
 {
@@ -18,12 +18,12 @@ class JobController extends Controller
     {
         //
         if($this->isAPI()){
-            $jobs = Job::where('status',1)->get();
+            $jobs = JobUser::where('status',1)->get();
             $ages = Age::all();
             return $this->success(compact('jobs','ages'));
         }
 
-        $jobs = Job::all();
+        $jobs = JobUser::all();
 
         return view('pages.job', compact('jobs'));
     }
@@ -48,7 +48,7 @@ class JobController extends Controller
     public function store(StoreJobRequest $request)
     {
         //
-        Job::StoreData($request);
+        JobUser::StoreData($request);
 
         return redirect()->route('job.index');
     }
@@ -59,7 +59,7 @@ class JobController extends Controller
      * @param  \App\Models\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function show(Job $job)
+    public function show(JobUser $job)
     {
         //
     }
@@ -70,7 +70,7 @@ class JobController extends Controller
      * @param  \App\Models\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function edit(Job $job)
+    public function edit(JobUser $job)
     {
         //
         return view('pages.job-edit', compact('job'));
@@ -80,28 +80,28 @@ class JobController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateJobRequest  $request
-     * @param  \App\Models\Job  $job
+     * @param  \App\Models\JobUser  $job
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateJobRequest $request, Job $job)
+    public function update(UpdateJobRequest $request, JobUser $job)
     {
         //
-        Job::UpdateData($job,$request);
-        
+        JobUser::UpdateData($job,$request);
+
         return redirect()->route('job.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Job  $job
+     * @param  \App\Models\JobUser  $job
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Job $job)
+    public function destroy(JobUser $job)
     {
         //
-        Job::DeleteData($job);
-        
+        JobUser::DeleteData($job);
+
         $res = [
             'success' => true,
             'messages' => "Job deleted successfully"

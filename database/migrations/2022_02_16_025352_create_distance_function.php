@@ -15,7 +15,7 @@ return new class extends Migration
     public function up()
     {
         DB::unprepared('
-        CREATE DEFINER=`'.env('DB_USERNAME').'`@`%` FUNCTION `GET_DISTANCE`(`lat1` DOUBLE, `lng1` DOUBLE, `lat2` DOUBLE, `lng2` DOUBLE, `unit` VARCHAR(2)) RETURNS double
+        CREATE FUNCTION `GET_DISTANCE`(`lat1` DOUBLE, `lng1` DOUBLE, `lat2` DOUBLE, `lng2` DOUBLE, `unit` VARCHAR(2)) RETURNS double
             NO SQL
             DETERMINISTIC
         BEGIN

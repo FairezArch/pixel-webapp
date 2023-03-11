@@ -26,9 +26,9 @@ class UserSeeder extends Seeder
         $admin = User::create([
             'store_id' => 0,
             'name' => 'Udin Worldwide admin',
-            'password' => Hash::make('123123'),
+            'password' => Hash::make('ByuRtuqVe'),
             'mobile' => '+628111111111111',
-            'email' => 'adminudin@gmail.com',
+            'email' => 'testing@example.net',
             'created_at' => $now,
             'updated_at' => $now
         ]);

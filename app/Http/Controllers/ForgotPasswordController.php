@@ -28,10 +28,6 @@ class ForgotPasswordController extends Controller
                     'email' => 'required|email|exists:users',
                 ]);
 
-                if ($validator->fails()) {
-                    return $this->fail('Email tidak ada atau tidak valid', [], 422);
-                }
-
                 $token = Str::random(64);
 
                 DB::table('password_resets')->insert([

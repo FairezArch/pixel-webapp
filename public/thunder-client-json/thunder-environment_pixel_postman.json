@@ -1,0 +1,19 @@
+{
+    "name": "pixel",
+    "id": "432cad4c-1833-45ce-a09b-e6846d21c4f3",
+    "_postman_variable_scope": "environment",
+    "_postman_exported_at": "2023-03-11T09:53:18.259Z",
+    "_postman_exported_using": "Thunder Client",
+    "values": [
+        {
+            "key": "base_url",
+            "value": "https://pixel-id.fairez.site/api",
+            "enabled": true
+        },
+        {
+            "key": "token",
+            "value": "6|sTgPHaopYLgVhjzw7e5kaihHXpkOeEQOsc8WKEfO",
+            "enabled": true
+        }
+    ]
+}

@@ -1,0 +1,451 @@
+{
+    "info": {
+        "name": "PIXEL",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{base_url}}/auth/login",
+                            "path": [
+                                "auth",
+                                "login"
+                            ],
+                            "host": [
+                                "{{base_url}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"udin@gmail.com\",\n  \"password\": \"kuudin123\",\n  \"device_id\": \"hdskajdhsakl82\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{base_url}}/auth/logout",
+                            "path": [
+                                "auth",
+                                "logout"
+                            ],
+                            "host": [
+                                "{{base_url}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "MyInfo",
+            "item": [
+                {
+                    "name": "Profile",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/profile",
+                            "path": [
+                                "profile"
+                            ],
+                            "host": [
+                                "{{base_url}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Profile-update",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{base_url}}/profile/2/update",
+                            "path": [
+                                "profile",
+                                "2",
+                                "update"
+                            ],
+                            "host": [
+                                "{{base_url}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "file",
+                                    "src": "c:\\Users\\faisal\\Pictures\\gambar-binatang.webp",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Forget-password",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{base_url}}/forget-password",
+                            "path": [
+                                "forget-password"
+                            ],
+                            "host": [
+                                "{{base_url}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"fairez.work@gmail.com\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "MySale",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/sale?dividedBy=6&mean=1&byMonth=2022-02-01",
+                            "query": [
+                                {
+                                    "key": "dividedBy",
+                                    "value": "6"
+                                },
+                                {
+                                    "key": "mean",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "byMonth",
+                                    "value": "2022-02-01"
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "sale"
+                            ],
+                            "host": [
+                                "{{base_url}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "MyTarget",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/target?date=2022-03-01",
+                            "query": [
+                                {
+                                    "key": "date",
+                                    "value": "2022-03-01"
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "target"
+                            ],
+                            "host": [
+                                "{{base_url}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Sale",
+            "item": []
+        },
+        {
+            "name": "Attendance",
+            "item": [
+                {
+                    "name": "Attendance",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{base_url}}/attendance",
+                            "path": [
+                                "attendance"
+                            ],
+                            "host": [
+                                "{{base_url}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"location\": [-7.566328, 110.805159]\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Sale",
+            "item": [
+                {
+                    "name": "Sale",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{base_url}}/sale",
+                            "path": [
+                                "sale"
+                            ],
+                            "host": [
+                                "{{base_url}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"customer_name\": \"Andi\",\n  \"customer_mobile\" : \"08832738125\",\n  \"customer_email\": \"andi@example.net\",\n  \"customer_gender\": \"p\",\n  \"customer_age\": 2,\n  \"customer_job\": 1,\n  \"customer_identity_number\": \"88329931237881\",\n  \"products\": [{\n    \"product_id\": 1,\n    \"imei\": \"8821931823799192\",\n    \"color\": \"\"\n  }]\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Job - age",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/job",
+                            "path": [
+                                "job"
+                            ],
+                            "host": [
+                                "{{base_url}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "item": [
+                {
+                    "name": "Product",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/products",
+                            "path": [
+                                "products"
+                            ],
+                            "host": [
+                                "{{base_url}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Show Product",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/products/1",
+                            "path": [
+                                "products",
+                                "1"
+                            ],
+                            "host": [
+                                "{{base_url}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

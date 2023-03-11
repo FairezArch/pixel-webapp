@@ -62,15 +62,15 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h4>Selamat datang dalam CMS Pixel Comunity Indonesia, Ini adalah bentuk dan data sederhana dari
-                    Pixel Comunity Indonesia. Perlu diketahui untuk
+                <h4>Selamat datang dalam CMS Pixel Communication Indonesia, Ini adalah bentuk dan data sederhana dari
+                    Pixel Communication Indonesia. Perlu diketahui untuk
                     data disini hanya sebagai contoh saja, tidak selengkap dari versi asli.</h4>
                 <p>Dibawah ini adalah list API, silahkan download env dan collection untuk mencoba. Untuk file ini
                     sudah
                     di convert untuk support dengan postman. Jika di postman mengalami kendala bisa di coba untuk
                     install extension thunder client di vs code dan import env dan collection</p>
                 <p>Perlu diketahui untuk mengirim email saat lupa password menggunkan queue laravel dengan set cron
-                    job 1 menit, Mungkin bisa agak delay</p>
+                    job 1 menit, terkadang butuh waktu untuk sampai ke email tujuan.</p>
                 <p>Jika sekiranya ada masukkan dan bug, jangan ragu untuk email ke <span
                         class="text-primary">fairez.work@gmail.com</span></p>
                 <p>Terimakasih</p>

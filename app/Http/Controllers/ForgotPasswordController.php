@@ -29,7 +29,7 @@ class ForgotPasswordController extends Controller
                 ]);
 
                 if ($validator->fails()) {
-                    $this->fail('Email tidak ada atau tidak valid', [], 422);
+                    return $this->fail('Email tidak ada atau tidak valid', [], 422);
                 }
 
                 $token = Str::random(64);

@@ -41,8 +41,6 @@ class AuthController extends Controller
                 }
             }
             if ($this->isAPI()) {
-                $user = $request->user();
-
                 $storeUser = Store::find($user->store_id);
                 if (empty($storeUser)) {
                     return $this->fail('Please add store in this user.', [], 400);
@@ -50,17 +48,17 @@ class AuthController extends Controller
 
                 $searchData = User::where('device_id', $request->device_id)->first();
 
+                if (empty($user->device_id) && empty($searchData)) {
+                    $user->device_id = $request->device_id;
+                    $user->save();
+                }
+
                 if ($searchData && $searchData->id !== $user->id) {
                     return $this->fail('Device already used.', [], 400);
                 }
 
-                if (!$user->device_id) {
-                    $user->device_id = $request->device_id;
-                    $user->save();
-                } else {
-                    if ($user->device_id != $request->device_id) {
+                 if ($user->device_id != $request->device_id) {
                         return $this->fail('You login with different device.', [], 400);
-                    }
                 }
 
                 $modelRole = ModelHasRole::where('model_id', $user->id)->first();

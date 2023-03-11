@@ -111,9 +111,9 @@ class Sale extends Model
 
         foreach ($request->products as $key => $value) {
 
-            
+
             (!empty($value['color'])) ? $color = Color::where('code_color',$value['color'])->first()->id : $color = 0;
-            
+
             $currentPrice = intval(Product::select(['price'])
                 ->firstWhere('id', $value['product_id'])->price);
 
@@ -125,7 +125,7 @@ class Sale extends Model
             $list[$key]['customer_id'] = $customer->id;
             $list[$key]['quantity'] = 1;
             $list[$key]['nominal'] = 1 * $currentPrice;
-            $list[$key]['imei_filename'] = $value['imei_photo'];
+            $list[$key]['imei_filename'] = $value['imei'];
             $list[$key]['created_at'] = $now;
             $list[$key]['updated_at'] = $now;
         }

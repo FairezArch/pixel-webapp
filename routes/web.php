@@ -35,6 +35,9 @@ Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showRes
 Route::post('/reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 Route::get('/reset-password-info', [ForgotPasswordController::class, 'resetPasswordInfo'])->name('reset.password.info');
 
+Route::get('/get-file-env', [AuthController::class, 'getENV'])->name('get.env.tc');
+Route::get('/get-file-collect', [AuthController::class, 'getCollection'])->name('get.collect.tc');
+
 Route::prefix('/auth')->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('auth.login');
     Route::post('/login', [AuthController::class, 'login'])->name('auth.login.submit');

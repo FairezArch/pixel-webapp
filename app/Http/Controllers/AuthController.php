@@ -101,4 +101,14 @@ class AuthController extends Controller
 
         return redirect()->route('auth.login');
     }
+
+    public function getENV()
+    {
+        return response()->download(public_path('thunder-client-json/thunder-environment_pixel_postman.json'));
+    }
+
+    public function getCollection()
+    {
+        return response()->download(public_path('thunder-client-json/thunder-collection_PIXEL_postman.json'));
+    }
 }

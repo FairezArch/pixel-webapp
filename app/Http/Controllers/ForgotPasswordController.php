@@ -23,10 +23,14 @@ class ForgotPasswordController extends Controller
     {
         try {
             //code...
-            if($this->isAPI()){
-                $request->validate([
+            if ($this->isAPI()) {
+                $validator = $request->validate([
                     'email' => 'required|email|exists:users',
                 ]);
+
+                if ($validator->fails()) {
+                    $this->fail('Email tidak ada atau tidak valid', [], 422);
+                }
 
                 $token = Str::random(64);
 

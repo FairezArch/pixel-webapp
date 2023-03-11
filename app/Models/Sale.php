@@ -110,9 +110,13 @@ class Sale extends Model
         $list = [];
 
         foreach ($request->products as $key => $value) {
+            
+            $checkColor = Color::where('code_color',$value['color'])->first();
+            if(empty($checkColor) || empty($value['color'])){
+                $color = 0;
+            }
 
-
-            (!empty($value['color'])) ? $color = Color::where('code_color',$value['color'])->first()->id : $color = 0;
+            $color = $checkColor->id;
 
             $currentPrice = intval(Product::select(['price'])
                 ->firstWhere('id', $value['product_id'])->price);

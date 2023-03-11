@@ -41,6 +41,8 @@ class AuthController extends Controller
                 }
             }
             if ($this->isAPI()) {
+                $user = $request->user();
+
                 $storeUser = Store::find($user->store_id);
                 if (empty($storeUser)) {
                     return $this->fail('Please add store in this user.', [], 400);

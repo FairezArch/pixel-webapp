@@ -103,11 +103,7 @@
                             d.maxDate = maxDateFilter.val();
                         },
                     },
-                    columns: [{
-                            data: 'image',
-                            name: 'image',
-                            title: 'Foto'
-                        },
+                    columns: [
                         {
                             data: 'user.name',
                             name: 'user.name',

@@ -8,7 +8,6 @@ Auth:
   "password": "kuudin123",
   "device_id": "hdskajdhsakl82"
 }
-  auth: Bearer token
 
 - Logout: digunakan untuk logout jika selesai menggunakan aplikasi
   method: POST
@@ -40,7 +39,7 @@ MyInfo:
   auth: Bearer token
 
 Attendance
-- Attendance: untuk jadwal hadir, dalam implementasi di mobile karyawan akan menekan tombol hadir dengan lokasi sesuai gps yang aktif 
+- Attendance: untuk jadwal hadir, dalam implementasi di mobile karyawan akan menekan tombol hadir dengan lokasi sesuai gps yang aktif
   dan dikirimkan berupa lat log. jika karyawan hadir namun lokasi jauh dari toko maka akan di anggap login di luar toko begitu juga sebaliknya.
   method: POST,
   body:  "location": [-7.566328, 110.805159]

@@ -111,4 +111,9 @@ class AuthController extends Controller
     {
         return response()->download(public_path('thunder-client-json/thunder-collection_PIXEL_postman.json'));
     }
+
+    public function getTextAPI()
+    {
+        return response()->download(public_path('thunder-client-json/api_pixel.txt'));
+    }
 }

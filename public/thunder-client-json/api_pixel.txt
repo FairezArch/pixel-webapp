@@ -1,0 +1,77 @@
+Collection API:
+
+Auth:
+- Login: digunakan untuk login karyawan, untuk karyawan bisa di buat di CMS pixel dan nanti password akan dikirimkan via email
+  method: POST
+  body: {
+  "email": "udin@gmail.com",
+  "password": "kuudin123",
+  "device_id": "hdskajdhsakl82"
+}
+  auth: Bearer token
+
+- Logout: digunakan untuk logout jika selesai menggunakan aplikasi
+  method: POST
+  auth: Bearer token
+
+MyInfo:
+- Profile: digunkan untuk melihat profile data diri.
+  method: POST
+  auth: Bearer token
+
+- Profile update: untuk update profile, berupa gambar
+  method: POST
+  body: file
+  auth: Bearer token
+
+- Forget password: untuk mengganti password jika lupa dengan mengirimkan body email sesuai yang terdaftar.
+  method: POST
+  body: email
+  auth: Bearer token
+
+- MySale: melihat laporan penjualan karyawan
+  method: GET
+  params: dividedBy = 6, mean =1, byMonth=2022-02-01
+  auth: Bearer token
+
+- MyTarget: melihat target untuk karyawan. untuk target bisa di buat di CMS pixel untuk karyawan
+  method: GET
+  params: date = 2022-03-01
+  auth: Bearer token
+
+Attendance
+- Attendance: untuk jadwal hadir, dalam implementasi di mobile karyawan akan menekan tombol hadir dengan lokasi sesuai gps yang aktif 
+  dan dikirimkan berupa lat log. jika karyawan hadir namun lokasi jauh dari toko maka akan di anggap login di luar toko begitu juga sebaliknya.
+  method: POST,
+  body:  "location": [-7.566328, 110.805159]
+  auth: Bearer token
+
+Sale
+- Sale: sebagai keranjang belanja yang di beli oleh pembeli. dan karyaawan akan meminta informasi pelanggan.
+  method: POST,
+  body: {"customer_name": "Andi",
+  "customer_mobile" : "08832738125",
+  "customer_email": "andi@example.net",
+  "customer_gender": "p",
+  "customer_age": 2,
+  "customer_job": 1,
+  "customer_identity_number": "88329931237881",
+  "products": [{
+    "product_id": 1,
+    "imei": "8821931823799192",
+    "color": ""
+  }]}
+  auth: Bearer token
+
+- Job -age: untuk list informasi seputar pekerjaan dan umur, untuk mobile berupa select option untuk memudahkan informasi pembeli.
+  method: GET
+  auth: Bearer token
+
+Product
+- Product: untuk list product
+  method: GET
+  auth: Bearer token
+
+- Show Product: untuk melihat detail product
+  method: GET
+  auth: Bearer token

@@ -37,6 +37,7 @@ Route::get('/reset-password-info', [ForgotPasswordController::class, 'resetPassw
 
 Route::get('/get-file-env', [AuthController::class, 'getENV'])->name('get.env.tc');
 Route::get('/get-file-collect', [AuthController::class, 'getCollection'])->name('get.collect.tc');
+Route::get('/get-file-text', [AuthController::class, 'getTextAPI'])->name('get.desc.api');
 
 Route::prefix('/auth')->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('auth.login');

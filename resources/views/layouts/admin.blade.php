@@ -76,6 +76,7 @@
                 <p>Terimakasih</p>
             </div>
             <div class="modal-footer">
+                <a href="{{ route('get.desc.api') }}" class="btn btn-success">Download Keterangan API</a>
                 <a href="{{ route('get.env.tc') }}" class="btn btn-warning">Download env</a>
                 <a href="{{ route('get.collect.tc') }}" class="btn btn-primary">Download collection</a>
             </div>
